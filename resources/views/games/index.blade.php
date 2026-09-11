@@ -12,6 +12,7 @@
                 <th>Game</th>
                 <th>Platform</th>
                 <th>Rating</th>
+                <th>Show</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -24,6 +25,9 @@
                     <td>{{ $game->game_name }}</td>
                     <td>{{ $game->platform }}</td>
                     <td>{{ $game->rating }}/10</td>
+                    <td>
+                        <a href="/games/show/{{ $game->id }}" class="btn btn-secondary btn-sm">Show</a>
+                    </td>
                     <td>
                         <a href="/games/edit/{{ $game->id }}" class="btn btn-primary btn-sm">Edit</a>
                     </td>
