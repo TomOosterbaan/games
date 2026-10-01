@@ -13,8 +13,10 @@
                 <th>Platform</th>
                 <th>Rating</th>
                 <th>Show</th>
+                @role('admin')
                 <th>Edit</th>
                 <th>Delete</th>
+                @endrole
             </tr>
         </thead>
         <tbody>
@@ -28,6 +30,7 @@
                     <td>
                         <a href="/games/show/{{ $game->id }}" class="btn btn-secondary btn-sm">Show</a>
                     </td>
+                    @role('admin')
                     <td>
                         <a href="/games/edit/{{ $game->id }}" class="btn btn-primary btn-sm">Edit</a>
                     </td>
@@ -37,6 +40,7 @@
                             <button onclick="return confirm('Weet je het zeker?')" class="btn btn-danger btn-sm" type="submit">Delete</button>
                         </form>
                     </td>
+                    @endrole
                 </tr>
                 @php( $sum += $game->rating )
             @endforeach
@@ -48,3 +52,6 @@
         </tbody>
     </table>
 @endsection
+@role('admin')
+    <p>Welkom beheerder! Je hebt volledige toegang.</p>
+@endrole
